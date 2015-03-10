@@ -1,4 +1,4 @@
-namespace: TimelineTest
+namespace: TimelineTest 
 actor: Tester
 paths:
     tests: tests
