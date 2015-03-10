@@ -1,0 +1,45 @@
+{
+    "name": "t4web/timeline",
+    "description": "ZF2 Module for making timeline",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "timeline"
+    ],
+    "homepage": "https://github.com/t4web/Timeline",
+    "authors": [
+        {
+            "name": "Max Gulturyan",
+            "email": "gulturyan@gmail.com",
+            "homepage": "http://about.me/maxgu"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/Base.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zendframework/zendframework": "2.3.*",
+
+        "t4web/base": "dev-master"
+    },
+    "require-dev" : {
+        "codeception/codeception": "2.*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Timeline": "src/",
+            "TimelineTest\\UnitTest": "tests/UnitTest/",
+            "TimelineTest\\FunctionalTest": "tests/FunctionalTest/",
+            "TimelineTest\\AcceptanceTest": "tests/AcceptanceTest/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
