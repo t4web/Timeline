@@ -1,5 +1,5 @@
 <?php
-namespace EmployeesTest\UnitTest\Controller\Console;
+namespace TimelineTest\UnitTest\Controller\Console;
 
 use Timeline\Controller\Console\InitController;
 
