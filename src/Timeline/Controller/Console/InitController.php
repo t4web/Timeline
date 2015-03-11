@@ -23,9 +23,13 @@ class InitController extends AbstractActionController {
 
     public function runAction() {
 
-        $this->createTableTimeline();
+        try {
+            $this->createTableTimeline();
+        } catch (PDOException $e) {
+            return $e->getMessage() . PHP_EOL;
+        }
 
-        return "Success completed" . PHP_EOL;
+        return "Timeline init success completed" . PHP_EOL;
     }
 
     private function createTableTimeline() {
@@ -34,8 +38,6 @@ class InitController extends AbstractActionController {
         $id = new Column\Integer('id');
         $id->setOption('AUTO_INCREMENT', 1);
         $table->addColumn($id);
-
-        $table->addColumn(new Column\Integer('type'));
 
         $creationDate = new Column\Date('creation_date');
         $creationDate->setNullable(false);
@@ -57,14 +59,10 @@ class InitController extends AbstractActionController {
 
         $sql = new Sql($this->dbAdapter);
 
-        try {
-            $this->dbAdapter->query(
-                $sql->getSqlStringForSqlObject($table),
-                Adapter::QUERY_MODE_EXECUTE
-            );
-        } catch (PDOException $e) {
-            return $e->getMessage() . PHP_EOL;
-        }
+        $this->dbAdapter->query(
+            $sql->getSqlStringForSqlObject($table),
+            Adapter::QUERY_MODE_EXECUTE
+        );
     }
 
 }
