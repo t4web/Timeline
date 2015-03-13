@@ -7,7 +7,7 @@
         "zf2",
         "timeline"
     ],
-    "homepage": "https://github.com/t4web/Timeline",
+    "homepage": "https://github.com/t4web/timeline",
     "authors": [
         {
             "name": "Max Gulturyan",
@@ -28,10 +28,10 @@
 
     "autoload": {
         "psr-0": {
-            "Timeline": "src/",
-            "TimelineTest\\UnitTest": "tests/UnitTest/",
-            "TimelineTest\\FunctionalTest": "tests/FunctionalTest/",
-            "TimelineTest\\AcceptanceTest": "tests/AcceptanceTest/"
+            "T4webTimeline": "src/",
+            "T4webTimelineTest\\UnitTest": "tests/UnitTest/",
+            "T4webTimelineTest\\FunctionalTest": "tests/FunctionalTest/",
+            "T4webTimelineTest\\AcceptanceTest": "tests/AcceptanceTest/"
         },
         "classmap": [
             "./Module.php"

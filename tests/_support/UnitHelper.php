@@ -1,5 +1,5 @@
 <?php
-namespace TimelineTest\Codeception\Module;
+namespace T4webTimelineTest\Codeception\Module;
 
 // here you can define custom actions
 // all public methods declared in helper class will be available in $I

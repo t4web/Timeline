@@ -1,7 +1,7 @@
 <?php
-namespace TimelineTest\UnitTest\ServiceLocator\Controller;
+namespace T4webTimelineTest\UnitTest\ServiceLocator\Controller;
 
-use Timeline\Module;
+use T4webTimeline\Module;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\ServiceManager\Config;

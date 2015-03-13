@@ -1,7 +1,7 @@
 <?php
-namespace TimelineTest\UnitTest\Controller\Console;
+namespace T4webTimelineTest\UnitTest\Controller\Console;
 
-use Timeline\Controller\Console\InitController;
+use T4webTimeline\Controller\Console\InitController;
 
 class InitControllerTest extends \PHPUnit_Framework_TestCase
 {

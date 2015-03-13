@@ -1,6 +1,6 @@
 <?php
 
-namespace Timeline\Listener;
+namespace T4webTimeline\Listener;
 
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;

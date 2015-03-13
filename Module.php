@@ -1,5 +1,5 @@
 <?php
-namespace Timeline;
+namespace T4webTimeline;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
@@ -11,7 +11,7 @@ use Zend\Mvc\Controller\ControllerManager;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
 use Zend\EventManager\EventInterface;
-use Timeline\Controller\Console\InitController;
+use T4webTimeline\Controller\Console\InitController;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                         ControllerProviderInterface, ConsoleUsageProviderInterface,
@@ -22,7 +22,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
         $em  = $e->getApplication()->getEventManager();
         $sm  = $e->getApplication()->getServiceManager();
 
-        $employeesListener = $sm->get('Timeline\Listener\Employees');
+        $employeesListener = $sm->get('T4webTimeline\Listener\Employees');
         $employeesListener->attach($em);
     }
 
@@ -53,7 +53,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
     {
         return array(
             'factories' => array(
-                'Timeline\Listener\Employees' => function(ServiceManager $sm) {
+                'T4webTimeline\Listener\Employees' => function(ServiceManager $sm) {
                     return new Listener\Employees(
                     );
                 },
@@ -67,7 +67,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
     {
         return array(
             'factories' => array(
-                'Timeline\Controller\Console\Init' => function (ControllerManager $cm) {
+                'T4webTimeline\Controller\Console\Init' => function (ControllerManager $cm) {
                     $sl = $cm->getServiceLocator();
                     return new InitController(
                         $sl->get('Zend\Db\Adapter\Adapter')

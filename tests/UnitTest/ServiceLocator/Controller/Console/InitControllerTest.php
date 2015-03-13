@@ -1,8 +1,8 @@
 <?php
-namespace TimelineTest\UnitTest\ServiceLocator\Controller\Console;
+namespace T4webTimelineTest\UnitTest\ServiceLocator\Controller\Console;
 
 require_once dirname(__DIR__) . "/ControllerManagerAwareTrait.php";
-use TimelineTest\UnitTest\ServiceLocator\Controller\ControllerManagerAwareTrait;
+use T4webTimelineTest\UnitTest\ServiceLocator\Controller\ControllerManagerAwareTrait;
 
 class InitControllerTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,11 +16,11 @@ class InitControllerTest extends \PHPUnit_Framework_TestCase
 
         $this->serviceManager->setService('Zend\Db\Adapter\Adapter', $dbAdapterMock);
 
-        $this->assertTrue($this->controllerManager->has('Timeline\Controller\Console\Init'));
+        $this->assertTrue($this->controllerManager->has('T4webTimeline\Controller\Console\Init'));
 
-        $controller = $this->controllerManager->get('Timeline\Controller\Console\Init');
+        $controller = $this->controllerManager->get('T4webTimeline\Controller\Console\Init');
 
-        $this->assertInstanceOf('Timeline\Controller\Console\InitController', $controller);
+        $this->assertInstanceOf('T4webTimeline\Controller\Console\InitController', $controller);
 
         $this->assertAttributeEquals($dbAdapterMock, 'dbAdapter', $controller);
     }

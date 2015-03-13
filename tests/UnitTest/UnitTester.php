@@ -4,9 +4,9 @@
 // You should not change it manually as it will be overwritten on next build
 // @codingStandardsIgnoreFile
 
-namespace TimelineTest;
+namespace T4webTimelineTest;
 use Codeception\Module\Asserts;
-use TimelineTest\Codeception\Module\UnitHelper;
+use T4webTimelineTest\Codeception\Module\UnitHelper;
 
 /**
  * Inherited Methods

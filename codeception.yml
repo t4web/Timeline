@@ -1,4 +1,4 @@
-namespace: TimelineTest 
+namespace: T4webTimelineTest
 actor: Tester
 paths:
     tests: tests

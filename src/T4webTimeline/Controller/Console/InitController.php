@@ -1,6 +1,6 @@
 <?php
 
-namespace Timeline\Controller\Console;
+namespace T4webTimeline\Controller\Console;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Db\Adapter\Adapter;

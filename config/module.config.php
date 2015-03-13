@@ -20,7 +20,7 @@ return array(
                     'options' => array(
                         'route'    => 'timeline init',
                         'defaults' => array(
-                            '__NAMESPACE__' => 'Timeline\Controller\Console',
+                            '__NAMESPACE__' => 'T4webTimeline\Controller\Console',
                             'controller' => 'Init',
                             'action'     => 'run'
                         )
