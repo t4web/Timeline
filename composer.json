@@ -16,16 +16,11 @@
         }
     ],
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/t4web/Base.git"
-        }
     ],
     "require": {
         "php": ">=5.4.0",
-        "zendframework/zendframework": "2.3.*",
+        "zendframework/zendframework": "2.3.*"
 
-        "t4web/base": "dev-master"
     },
     "require-dev" : {
         "codeception/codeception": "2.*"
