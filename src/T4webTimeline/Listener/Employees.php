@@ -26,7 +26,7 @@ class Employees implements ListenerAggregateInterface {
     public function attach(EventManagerInterface $events, $priority = 1) {
         $this->listeners[] = $events->getSharedManager()
                 ->attach(
-                        'Employees\Employee\Service\Create',
+                        'T4webEmployees\Employee\Service\Create',
                         'create:post',
                         array($this, 'onEmployeeCreate'),
                         $priority
@@ -54,6 +54,6 @@ class Employees implements ListenerAggregateInterface {
     public function onEmployeeCreate(Event $e) {
         $employee = $e->getParam('entity');
 
-        //die(var_dump(__METHOD__, $employee));
+        die(var_dump(__METHOD__, $employee));
     }
 }
