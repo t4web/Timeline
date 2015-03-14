@@ -1,6 +1,6 @@
 <?php
 
-namespace T4webEmployees\Employee;
+namespace T4webTimeline\Entry;
 
 use T4webBase\Domain\Enum;
 
