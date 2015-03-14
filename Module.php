@@ -9,6 +9,7 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
+use T4webBase\Domain\Service\Create as ServiceCreate;
 use T4webTimeline\Controller\Console\InitController;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
@@ -43,8 +44,16 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
     {
         return array(
             'factories' => array(
+                'T4webTimeline\Entry\Service\Create' => function (ServiceManager $sm) {
+                    return new ServiceCreate(
+                        $sm->get('T4webTimeline\Entry\InputFilter\Create'),
+                        $sm->get('T4webTimeline\Entry\Repository\DbRepository'),
+                        $sm->get('T4webTimeline\Entry\Factory\EntityFactory')
+                    );
+                },
             ),
             'invokables' => array(
+                'T4webTimeline\Entry\InputFilter\Create' => 'T4webTimeline\Entry\InputFilter\Create',
             ),
         );
     }

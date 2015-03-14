@@ -32,14 +32,14 @@ return array(
 
     'db' => array(
         'tables' => array(
-            'timeline-timeline' => array(
+            't4webtimeline-entry' => array(
                 'name' => 'timeline',
                 'columnsAsAttributesMap' => array(
                     'id' => 'id',
-                    'name' => 'name',
-                    'surname' => 'surname',
-                    'patronymic' => 'patronymic',
-                    'avatar' => 'avatar',
+                    'creation_date' => 'creationDate',
+                    'type' => 'type',
+                    'object_id' => 'objectId',
+                    'initiator_id' => 'initiatorId',
                 ),
             ),
         ),
