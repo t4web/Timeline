@@ -10,6 +10,7 @@ use Zend\Mvc\Controller\ControllerManager;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
 use T4webBase\Domain\Service\Create as ServiceCreate;
+use T4webBase\Domain\Service\BaseFinder as ServiceFinder;
 use T4webTimeline\Controller\Console\InitController;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
@@ -49,6 +50,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                         $sm->get('T4webTimeline\Entry\InputFilter\Create'),
                         $sm->get('T4webTimeline\Entry\Repository\DbRepository'),
                         $sm->get('T4webTimeline\Entry\Factory\EntityFactory')
+                    );
+                },
+
+                'T4webTimeline\Entry\Service\Finder' => function (ServiceManager $sm) {
+                    return new ServiceFinder(
+                        $sm->get('T4webTimeline\Entry\Repository\DbRepository'),
+                        $sm->get('T4webTimeline\Entry\Criteria\CriteriaFactory')
                     );
                 },
             ),
