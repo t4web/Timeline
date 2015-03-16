@@ -11,6 +11,8 @@ class TimelineViewModel extends ViewModel {
      */
     private $collection;
 
+    private $renderers;
+
     public function __construct($variables = null, $options = null) {
         parent::__construct($variables, $options);
 
@@ -33,6 +35,19 @@ class TimelineViewModel extends ViewModel {
         $this->collection = $collection;
     }
 
+    public function addRenderer($entryId, $renderer)
+    {
+        $this->renderers[$entryId] = $renderer;
+    }
 
+    public function getRenderer($entry)
+    {
+        if (!isset($this->renderers[$entry->getId()])) {
+            $this->renderers[$entry->getId()] = new TimelineRenderer();
+            $this->renderers[$entry->getId()]->setCreationDate($entry->getCreationDate());
+        }
+
+        return $this->renderers[$entry->getId()];
+    }
 
 }

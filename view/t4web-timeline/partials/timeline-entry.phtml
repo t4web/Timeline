@@ -1,0 +1,12 @@
+<?php /** @var T4webTimeline\View\Helper\TimelineRenderer $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="tl-entry">
+    <div class="tl-time">
+        <?=$viewModel->getCreationDate()?>
+    </div>
+    <div class="tl-icon bg-success"><img alt="" src="/assets/demo/avatars/2.jpg"></div>
+    <div class="panel tl-body">
+        <a href="#">Denise Steiner</a> XXX <a href="#">The Gallery</a>
+    </div>
+</div>

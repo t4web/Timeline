@@ -3,6 +3,7 @@
 namespace T4webTimeline\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
+use Zend\EventManager\EventManager;
 use T4webBase\Domain\Service\BaseFinder as FinderService;
 use T4webBase\Domain\Collection;
 
@@ -18,10 +19,19 @@ class Timeline extends AbstractHelper {
      */
     protected $viewModel;
 
-    public function __construct(FinderService $finder, TimelineViewModel $viewModel)
+    /**
+     * @var EventManager
+     */
+    private $eventManager;
+
+    public function __construct(
+        FinderService $finder,
+        TimelineViewModel $viewModel,
+        EventManager $eventManager)
     {
         $this->finder = $finder;
         $this->viewModel = $viewModel;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -30,10 +40,12 @@ class Timeline extends AbstractHelper {
      */
     public function __invoke($objectId)
     {
-        /** @var ollection $entries */
+        /** @var Collection $entries */
         $entries = $this->finder->findMany(['T4webTimeline' => ['Entry' => ['objectId' => $objectId]]]);
 
         $this->viewModel->setCollection($entries);
+
+        $this->eventManager->trigger('render', $this, ['viewModel' => $this->viewModel]);
 
         return $this->getView()->render($this->viewModel);
     }

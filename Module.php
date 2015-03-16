@@ -89,10 +89,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
             'factories' => array(
                 'timeline' => function (HelperPluginManager $pluginManager) {
                     $sl = $pluginManager->getServiceLocator();
+                    $eventManager = $sl->get('EventManager');
+                    $eventManager->addIdentifiers('T4webTimeline\View\Helper\Timeline');
 
                     return new View\Helper\Timeline(
                         $sl->get('T4webTimeline\Entry\Service\Finder'),
-                        $sl->get('T4webTimeline\View\Helper\TimelineViewModel')
+                        $sl->get('T4webTimeline\View\Helper\TimelineViewModel'),
+                        $eventManager
                     );
                 },
             ),
