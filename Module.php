@@ -6,16 +6,18 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
+use Zend\View\HelperPluginManager;
 use T4webBase\Domain\Service\Create as ServiceCreate;
 use T4webBase\Domain\Service\BaseFinder as ServiceFinder;
 use T4webTimeline\Controller\Console\InitController;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                         ControllerProviderInterface, ConsoleUsageProviderInterface,
-                        ServiceProviderInterface
+                        ServiceProviderInterface, ViewHelperProviderInterface
 {
 
     public function getConfig($env = null)
@@ -62,6 +64,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
             ),
             'invokables' => array(
                 'T4webTimeline\Entry\InputFilter\Create' => 'T4webTimeline\Entry\InputFilter\Create',
+                'T4webTimeline\View\Helper\TimelineViewModel' => 'T4webTimeline\View\Helper\TimelineViewModel',
             ),
         );
     }
@@ -74,6 +77,22 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                     $sl = $cm->getServiceLocator();
                     return new InitController(
                         $sl->get('Zend\Db\Adapter\Adapter')
+                    );
+                },
+            ),
+        );
+    }
+
+    public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'timeline' => function (HelperPluginManager $pluginManager) {
+                    $sl = $pluginManager->getServiceLocator();
+
+                    return new View\Helper\Timeline(
+                        $sl->get('T4webTimeline\Entry\Service\Finder'),
+                        $sl->get('T4webTimeline\View\Helper\TimelineViewModel')
                     );
                 },
             ),

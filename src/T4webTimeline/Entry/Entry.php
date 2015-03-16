@@ -11,4 +11,13 @@ class Entry extends Entity {
     protected $objectId;
     protected $initiatorId;
 
+    /**
+     * @return mixed
+     */
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+
 }
