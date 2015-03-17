@@ -43,7 +43,7 @@ class TimelineViewModel extends ViewModel {
     public function getRenderer($entry)
     {
         if (!isset($this->renderers[$entry->getId()])) {
-            $this->renderers[$entry->getId()] = new TimelineRenderer();
+            $this->renderers[$entry->getId()] = new EntryRenderer();
             $this->renderers[$entry->getId()]->setCreationDate($entry->getCreationDate());
         }
 

@@ -4,10 +4,9 @@ namespace T4webTimeline\View\Helper;
 
 use Zend\View\Model\ViewModel;
 
-class TimelineRenderer extends ViewModel {
+class EntryRenderer extends ViewModel {
 
     private $creationDate;
-    private $renderer;
 
     public function __construct($variables = null, $options = null) {
         parent::__construct($variables, $options);
