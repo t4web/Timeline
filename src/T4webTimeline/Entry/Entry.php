@@ -19,5 +19,12 @@ class Entry extends Entity {
         return $this->creationDate;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
 }
