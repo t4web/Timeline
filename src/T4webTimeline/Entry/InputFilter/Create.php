@@ -16,7 +16,7 @@ class Create extends InputFilter {
         $this->add($id);
         
         // creation_date
-        $creationDate = new Date('creationDate');
+        $creationDate = new Date('creationDate', 'Y-m-d');
         $creationDate->setRequired(true);
         $this->add($creationDate);
 
