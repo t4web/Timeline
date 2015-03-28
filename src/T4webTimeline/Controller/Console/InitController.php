@@ -55,6 +55,10 @@ class InitController extends AbstractActionController {
         $initiatorId->setNullable(true);
         $table->addColumn($initiatorId);
 
+        $text = new Column\Text('text');
+        $text->setNullable(true);
+        $table->addColumn($text);
+
         $table->addConstraint(new Constraint\PrimaryKey('id'));
 
         $sql = new Sql($this->dbAdapter);
