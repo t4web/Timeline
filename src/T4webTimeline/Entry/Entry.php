@@ -37,7 +37,7 @@ class Entry extends Entity {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getText()
     {
