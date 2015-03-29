@@ -5,6 +5,7 @@ namespace T4webTimeline\Entry\InputFilter;
 use T4webBase\InputFilter\InputFilter;
 use T4webBase\InputFilter\Element\Id;
 use T4webBase\InputFilter\Element\Date;
+use T4webBase\InputFilter\Element\Text;
 
 class Create extends InputFilter {
     
@@ -34,5 +35,10 @@ class Create extends InputFilter {
         $initiatorId = new Id('initiatorId');
         $initiatorId->setRequired(true);
         $this->add($initiatorId);
+
+        // text
+        $text = new Text('text');
+        $text->setRequired(false);
+        $this->add($text);
     }
 }
