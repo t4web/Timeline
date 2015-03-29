@@ -41,7 +41,10 @@ class Timeline extends AbstractHelper {
     public function __invoke($objectId)
     {
         /** @var Collection $entries */
-        $entries = $this->finder->findMany(['T4webTimeline' => ['Entry' => ['objectId' => $objectId]]]);
+        $entries = $this->finder->findMany(['T4webTimeline' => ['Entry' => [
+            'objectId' => $objectId,
+            //'OrderByDate' => $objectId
+        ]]]);
 
         $this->viewModel->setCollection($entries);
 
