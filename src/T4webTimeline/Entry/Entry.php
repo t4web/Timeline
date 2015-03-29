@@ -36,5 +36,12 @@ class Entry extends Entity {
         return $this->objectId;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
 
 }
