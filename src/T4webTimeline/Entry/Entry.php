@@ -10,6 +10,7 @@ class Entry extends Entity {
     protected $type;
     protected $objectId;
     protected $initiatorId;
+    protected $text;
 
     /**
      * @return mixed

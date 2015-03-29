@@ -40,6 +40,7 @@ return array(
                     'type' => 'type',
                     'object_id' => 'objectId',
                     'initiator_id' => 'initiatorId',
+                    'text' => 'text',
                 ),
             ),
         ),
