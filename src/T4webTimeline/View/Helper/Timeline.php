@@ -43,7 +43,7 @@ class Timeline extends AbstractHelper {
         /** @var Collection $entries */
         $entries = $this->finder->findMany(['T4webTimeline' => ['Entry' => [
             'objectId' => $objectId,
-            //'OrderByDate' => $objectId
+            'OrderBy' => 'creation_date DESC',
         ]]]);
 
         $this->viewModel->setCollection($entries);
