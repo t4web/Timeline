@@ -37,7 +37,7 @@ class Create extends InputFilter {
         $this->add($initiatorId);
 
         // text
-        $text = new Text('text');
+        $text = new Text('text', 0, null);
         $text->setRequired(false);
         $this->add($text);
     }
