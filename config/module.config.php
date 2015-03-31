@@ -13,6 +13,33 @@ return array(
         ),
     ),
 
+    'router' => array(
+        'routes' => array(
+            'timeline-list' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/timeline',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webTimeline\Controller\User',
+                        'controller'    => 'List',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
+            'timeline-add' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/timeline/add',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webTimeline\Controller\User',
+                        'controller'    => 'Add',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
+        ),
+    ),
+
     'console' => array(
         'router' => array(
             'routes' => array(

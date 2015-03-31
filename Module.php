@@ -63,6 +63,8 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                 },
             ),
             'invokables' => array(
+                'T4webTimeline\Controller\User\ListViewModel' => 'T4webTimeline\Controller\User\ListViewModel',
+
                 'T4webTimeline\Entry\InputFilter\Create' => 'T4webTimeline\Entry\InputFilter\Create',
                 'T4webTimeline\View\Helper\TimelineViewModel' => 'T4webTimeline\View\Helper\TimelineViewModel',
             ),
@@ -77,6 +79,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                     $sl = $cm->getServiceLocator();
                     return new InitController(
                         $sl->get('Zend\Db\Adapter\Adapter')
+                    );
+                },
+                'T4webTimeline\Controller\User\List' => function (ControllerManager $cm) {
+                    $sl = $cm->getServiceLocator();
+                    return new Controller\User\ListController(
+                        $sl->get('T4webTimeline\Entry\Service\Finder'),
+                        $sl->get('T4webTimeline\Controller\User\ListViewModel')
                     );
                 },
             ),
