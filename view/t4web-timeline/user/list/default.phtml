@@ -23,12 +23,46 @@
         <div class="row form-group">
             <label class="col-sm-1 control-label">Type:</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="name">
+                <script>
+                    init.push(function () {
+                        // Multiselect
+                        $("#jquery-select2-multiple").select2({
+                            placeholder: "Select a State"
+                        });
+                    });
+                </script>
+                <select multiple="multiple" id="jquery-select2-multiple" class="form-control">
+                    <optgroup label="Employees">
+                        <option value="AK" selected>Employee Created</option>
+                        <option value="HI" selected>Employee Updated</option>
+                    </optgroup>
+                    <optgroup label="Company">
+                        <option value="CA">Value1</option>
+                        <option value="NV">Value2</option>
+                    </optgroup>
+                    <optgroup label="System">
+                        <option value="AZ">Value3</option>
+                        <option value="CO">Value4</option>
+                        <option value="ID">Value5</option>
+                    </optgroup>
+                </select>
             </div>
 
             <label class="col-sm-1 control-label">Date:</label>
             <div class="col-sm-5">
-                <input type="email" class="form-control" name="email">
+                <script>
+                    init.push(function () {
+                        var options2 = {
+                            orientation: 'auto auto'
+                        };
+                        $('#bs-datepicker-range').datepicker(options2);
+                    });
+                </script>
+                <div class="input-daterange input-group" id="bs-datepicker-range">
+                    <input type="text" class="input-sm form-control" name="dateFrom" placeholder="Start date">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="input-sm form-control" name="dateTo" placeholder="End date">
+                </div>
             </div>
         </div>
     </div>
