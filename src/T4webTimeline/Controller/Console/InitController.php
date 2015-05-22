@@ -23,11 +23,7 @@ class InitController extends AbstractActionController {
 
     public function runAction() {
 
-        try {
-            $this->createTableTimeline();
-        } catch (PDOException $e) {
-            return $e->getMessage() . PHP_EOL;
-        }
+        $this->createTableTimeline();
 
         return "Timeline init success completed" . PHP_EOL;
     }
@@ -63,10 +59,14 @@ class InitController extends AbstractActionController {
 
         $sql = new Sql($this->dbAdapter);
 
-        $this->dbAdapter->query(
-            $sql->getSqlStringForSqlObject($table),
-            Adapter::QUERY_MODE_EXECUTE
-        );
+        try {
+            $this->dbAdapter->query(
+                $sql->getSqlStringForSqlObject($table),
+                Adapter::QUERY_MODE_EXECUTE
+            );
+        } catch (PDOException $e) {
+            return $e->getMessage() . PHP_EOL;
+        }
     }
 
 }
