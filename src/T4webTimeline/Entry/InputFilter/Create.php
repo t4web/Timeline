@@ -33,7 +33,7 @@ class Create extends InputFilter {
 
         // initiatorId
         $initiatorId = new Id('initiatorId');
-        $initiatorId->setRequired(true);
+        $initiatorId->setRequired(false);
         $this->add($initiatorId);
 
         // text
