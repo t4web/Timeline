@@ -26,17 +26,6 @@ return array(
                     ),
                 ),
             ),
-            'timeline-add' => array(
-                'type'    => 'Literal',
-                'options' => array(
-                    'route'    => '/timeline/add',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'T4webTimeline\Controller\User',
-                        'controller'    => 'Add',
-                        'action'        => 'default',
-                    ),
-                ),
-            ),
         ),
     ),
 
