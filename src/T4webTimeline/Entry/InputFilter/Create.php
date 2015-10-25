@@ -2,6 +2,7 @@
 
 namespace T4webTimeline\Entry\InputFilter;
 
+use Zend\Filter\FilterChain;
 use T4webBase\InputFilter\InputFilter;
 use T4webBase\InputFilter\Element\Id;
 use T4webBase\InputFilter\Element\Date;
@@ -38,6 +39,7 @@ class Create extends InputFilter {
 
         // text
         $text = new Text('text', 0, null);
+        $text->setFilterChain(new FilterChain()); // just for not filter html entities
         $text->setRequired(false);
         $this->add($text);
     }
